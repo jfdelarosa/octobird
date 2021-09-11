@@ -1,0 +1,26 @@
+{
+  "name": "octobird",
+  "version": "1.0.0",
+  "description": "🐙🐦",
+  "main": "src/app.js",
+  "scripts": {
+    "dev": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jfdelarosa/octobird.git"
+  },
+  "author": "jfdelarosa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jfdelarosa/octobird/issues"
+  },
+  "homepage": "https://github.com/jfdelarosa/octobird#readme",
+  "dependencies": {
+    "canvas": "^2.8.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}

@@ -1,4 +1,5 @@
 import { createCanvas } from 'canvas';
+import { roundRect } from '$lib/roundRect';
 const SQUARE_WIDTH = 20;
 const WEEKS = 53;
 const PADDING = 2;
@@ -13,8 +14,7 @@ function createSquare(ctx, x, y, level) {
 	ctx.beginPath();
 	ctx.fillStyle = '#1d9bf0';
 	ctx.globalAlpha = getAlpha(level);
-	ctx.rect(x, y, SQUARE_WIDTH, SQUARE_WIDTH, 5);
-	ctx.fill();
+	roundRect(ctx, x, y, SQUARE_WIDTH, SQUARE_WIDTH, 5, true);
 }
 
 function createImage(user, { contributions }) {

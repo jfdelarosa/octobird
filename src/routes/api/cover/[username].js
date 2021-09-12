@@ -3,14 +3,16 @@ import { getChart } from '$lib/github';
 
 export async function get({ params }) {
 	try {
-		const { user } = params;
+		const { username } = params;
 
-		if (!user) {
+		if (!username) {
 			throw new Error('User is required');
 		}
 
-		const { data } = await getChart(user);
-		const image = createImage(user, data);
+		const {
+			data: { contributions }
+		} = await getChart(username);
+		const image = createImage(username, contributions, true);
 
 		return {
 			headers: {

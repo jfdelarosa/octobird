@@ -1,5 +1,6 @@
 import { createCanvas } from 'canvas';
 import { roundRect } from '$lib/roundRect';
+
 const SQUARE_WIDTH = 20;
 const WEEKS = 53;
 const PADDING = 2;
@@ -17,7 +18,7 @@ function createSquare(ctx, x, y, level) {
 	roundRect(ctx, x, y, SQUARE_WIDTH, SQUARE_WIDTH, 5, true);
 }
 
-function createImage(user, { contributions }) {
+function createImage(username, contributions, png = false) {
 	const width = 1500;
 	const height = 500;
 
@@ -30,7 +31,7 @@ function createImage(user, { contributions }) {
 	ctx.textAlign = 'right';
 	ctx.fillStyle = '#0f1419';
 	ctx.font = '18px Menlo';
-	ctx.fillText(`@${user}`, width - 100, height - 100);
+	ctx.fillText(`@${username}`, width - 100, height - 100);
 
 	for (let i = contributions.length; i > 0; i--) {
 		for (let j = 7; j > 0; j--) {
@@ -47,7 +48,11 @@ function createImage(user, { contributions }) {
 		}
 	}
 
-	return canvas.toBuffer('image/png');
+	if (png) {
+		return canvas.toBuffer('image/png');
+	}
+
+	return canvas.toDataURL();
 }
 
 export { createImage };

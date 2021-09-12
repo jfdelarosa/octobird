@@ -14,9 +14,11 @@ async function getChart(user) {
             },
             count: {
               attr: "data-count",
+              convert: (count) => Number(count),
             },
             level: {
               attr: "data-level",
+              convert: (level) => Number(level),
             },
           },
         },

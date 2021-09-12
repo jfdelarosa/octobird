@@ -21,7 +21,7 @@ const routes = () => {
     }
   });
 
-  router.get("/cover/:user", (req, res) => {
+  router.get("/cover/:user", async (req, res) => {
     try {
       const { user } = req.params;
 
@@ -29,15 +29,16 @@ const routes = () => {
         throw new Error("User is required");
       }
 
-      const image = createImage(user);
+      const { data } = await getChart(user);
+      const image = createImage(user, data);
       res.type("png").send(image);
     } catch ({ message }) {
       res.json({ message });
     }
   });
 
-  router.get("/health", (req, res) => {
-    res.status(200).json({ hola: "mundo" });
+  router.get("*", (req, res) => {
+    res.status(404).send("Not found");
   });
 
   return router;

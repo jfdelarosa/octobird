@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+	import { user } from '$lib/store';
+	import Form from '$lib/components/Form.svelte';
+</script>
+
+{#if !$user}
+	<a href="/auth">Login</a>
+{:else}
+	<Form />
+{/if}

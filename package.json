@@ -21,7 +21,8 @@
   "homepage": "https://github.com/jfdelarosa/octobird#readme",
   "dependencies": {
     "canvas": "^2.8.0",
-    "scrape-it": "^5.3.2"
+    "scrape-it": "^5.3.2",
+    "twitter-lite": "^1.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.4",
